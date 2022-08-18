@@ -3,26 +3,15 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add CSS and JS to Thymeleaf</title>
-    <link rel="stylesheet"
-          href="../../static/styles/tile.css"/>
+    <title>Tile</title>
+    <link href="/static/css/tile.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="container">
-    <div class="tile" onclick=" window.open('https://google.com','_blank')">
-        <h2>Title</h2>
-        <p>
-            1 This is text on which we want to apply <strong>very special</strong> styling.
-            2 This is text on which we want to apply <strong>very special</strong> styling.
-            3 This is text on which we want to apply <strong>very special</strong> styling.
-        </p>
+    <div class="tile" onclick="window.open('https://google.com','_blank')">
+        <h2 th:text="${tile.getTitle()}">VALUE</h2>
+        <p th:text="${tile.getDescription()}">VALUE</p>
     </div>
 </div>
 </body>
 </html>
-
-<!--<script>-->
-<!--    function myFunction() {-->
-<!--        window.o-->
-<!--    }-->
-<!--</script>-->
