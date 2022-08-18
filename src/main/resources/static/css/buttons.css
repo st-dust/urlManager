@@ -1,0 +1,22 @@
+button {
+    background-color: deepskyblue;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+.delete-button button {
+}
+
+.delete-button:hover {
+    background-color: red;
+}
+
+.edit-button button {
+}
+
+.edit-button:hover {
+    background-color: darkorange;
+}
