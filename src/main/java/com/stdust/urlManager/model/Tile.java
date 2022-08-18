@@ -5,14 +5,15 @@ import org.hibernate.validator.constraints.URL;
 import javax.persistence.*;
 
 @Entity
-public class UrlTile {
+@Table(name = "tile")
+public class Tile {
     @Id
     @Column(name = "tile_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "title")
+    private String title;
 
     @Column(name = "description")
     private String description;
@@ -21,11 +22,11 @@ public class UrlTile {
     @URL
     private String url;
 
-    public UrlTile() {
+    public Tile() {
     }
 
-    public UrlTile(String name, String description, String url) {
-        this.name = name;
+    public Tile(String name, String description, String url) {
+        this.title = name;
         this.description = description;
         this.url = url;
     }
@@ -38,12 +39,12 @@ public class UrlTile {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String name) {
+        this.title = name;
     }
 
     public String getDescription() {

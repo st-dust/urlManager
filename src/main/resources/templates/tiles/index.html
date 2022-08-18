@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show person data</title>
+</head>
+<body>
+<b th:text="'All the tiles:'">VALUE</b>
+<br/>
+
+<table th:each="tile : ${tiles}">
+    <tr th:text="${tile.getTitle()} + ', ' + ${tile.getDescription()}">VALUE</tr>
+</table>
+
+</body>
+</html>
