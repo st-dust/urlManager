@@ -1,4 +1,4 @@
-h2 {
+span {
     font-family: sans-serif;
     font-size: 1.5em;
     text-transform: uppercase;
@@ -65,17 +65,8 @@ p {
 div.button-group {
     margin: 0;
     padding: 0;
-    /*background-color: #04AA6D; !* Green background *!*/
-    /*border: 1px solid green; !* Green border *!*/
-    /*color: white; !* White text *!*/
-    /*padding: 10px 24px; !* Some padding *!*/
-    cursor: pointer; /* Pointer/hand icon */
-    /*width: 50%; !* Set a width if needed *!*/
-
-    /*align-content: stretch;*/
-
-
-    display: none; /* Make the buttons appear below each other */
+    cursor: pointer;
+    display: none;
 }
 
 div.tile-container:hover > div.button-group{

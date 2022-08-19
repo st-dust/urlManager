@@ -11,17 +11,19 @@
 <div class="tile-container">
     <div class="tile" onclick="window.open('https://www.postman.com/','_blank')">
 
-        <h2 th:text="${tile.getTitle()}">VALUE</h2>
+        <span th:text="${tile.getTitle()}">VALUE</span>
         <p th:text="${tile.getDescription()}">VALUE</p>
 
     </div>
     <div class="button-group">
         <button class="delete-button"
-                onclick="window.open('https://mvnrepository.com','_blank')">
+                onclick="window.open('https://mvnrepository.com','_blank')"
+                title="Delete">
             <i class="fa fa-close"></i>
         </button>
         <button class="edit-button"
-                onclick="window.open('https://docs.spring.io','_blank')">
+                onclick="window.open('https://docs.spring.io','_blank')"
+                title="Edit">
             <i class="fa fa-edit"></i>
         </button>
     </div>
