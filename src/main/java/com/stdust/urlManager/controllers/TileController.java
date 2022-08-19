@@ -67,4 +67,10 @@ public class TileController {
 
         return "redirect:/tiles";
     }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") int id) {
+        tileService.delete(id);
+        return "redirect:/tiles";
+    }
 }

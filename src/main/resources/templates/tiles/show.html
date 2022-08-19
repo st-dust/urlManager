@@ -17,12 +17,15 @@
     </div>
     <div class="button-group">
         <button class="delete-button"
-                onclick="window.open('https://mvnrepository.com','_blank')"
+                th:method="DELETE"
+                th:data-url="@{http://localhost:8080/tiles/{id}(id=${tile.getId()})}"
+                th:onclick="window.open(this.getAttribute('data-url'), '_self')"
                 title="Delete">
             <i class="fa fa-close"></i>
         </button>
         <button class="edit-button"
-                onclick="window.open('https://docs.spring.io','_blank')"
+                th:data-url="@{http://localhost:8080/tiles/{id}/edit(id=${tile.getId()})}"
+                th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"
                 title="Edit">
             <i class="fa fa-edit"></i>
         </button>
