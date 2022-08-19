@@ -1,29 +1,28 @@
 span {
     font-family: sans-serif;
     font-size: 1.5em;
-    text-transform: uppercase;
-}
-
-strong {
-    font-weight: 700;
-    background-color: yellow;
+    font-weight: bold;
 }
 
 p {
     font-family: sans-serif;
 }
 
+.tile-collection {
+    display: inline-block;
+    width: 18%;
+}
+
 .tile-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: inline-flex;
+    height: 200px;
+    margin-bottom: 5%;
 }
 
 .tile-container .tile {
-    position: relative;
     background-color: #0094FF;
     box-shadow: 0 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
 
-    width: 20%;
     word-wrap:break-word;
     padding: .65rem;
     border-radius: 4%;

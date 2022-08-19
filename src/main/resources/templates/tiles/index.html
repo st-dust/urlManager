@@ -12,7 +12,7 @@
 <b th:text="'FULL DB OF TILES'">VALUE</b>
 <br/>
 
-<table th:each="tile : ${tiles}">
+<div class="tile-collection" th:each="tile : ${tiles}">
     <div class="tile-container">
         <div class="tile"
              th:data-url="${tile.getUrl()}"
@@ -22,6 +22,7 @@
             <p th:text="${tile.getDescription()}">VALUE</p>
 
         </div>
+
         <div class="button-group">
             <form action="#"
                   th:method="DELETE"
@@ -40,7 +41,7 @@
             </button>
         </div>
     </div>
-</table>
+</div>
 
 </body>
 </html>
