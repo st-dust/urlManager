@@ -9,7 +9,9 @@
 </head>
 <body>
 <div class="tile-container">
-    <div class="tile" onclick="window.open('https://www.postman.com/','_blank')">
+    <div class="tile"
+         th:data-url="${tile.getUrl()}"
+         onclick="window.open(this.getAttribute('data-url'),'_blank')">
 
         <span th:text="${tile.getTitle()}">VALUE</span>
         <p th:text="${tile.getDescription()}">VALUE</p>
@@ -22,7 +24,7 @@
             <button class="delete-button"
                     type="submit"
                     title="Delete">
-                <i class="fa fa-close"></i>
+<!--                <i class="fa fa-close"></i>-->
             </button>
         </form>
         <button class="edit-button"
