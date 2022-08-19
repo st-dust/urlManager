@@ -20,7 +20,7 @@ p {
 }
 
 .tile-container .tile {
-    background-color: #0094FF;
+    background-color: lightskyblue;
     box-shadow: 0 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
 
     word-wrap:break-word;
@@ -72,15 +72,40 @@ div.tile-container:hover > div.button-group{
     display: block;
 }
 
-summary::-webkit-details-marker {
-    color: #00ACF3;
-    font-size: 125%;
-    margin-right: 2px;
+/*summary::-webkit-details-marker {*/
+/*    color: #00ACF3;*/
+/*    font-size: 125%;*/
+/*    margin-right: 2px;*/
+/*}*/
+
+/*summary::marker {*/
+/*    color: red;*/
+/*}*/
+/*summary:focus {*/
+/*    outline-style: none;*/
+/*}*/
+
+details>summary {
+    list-style: none;
 }
-summary:focus {
-    outline-style: none;
+summary::-webkit-details-marker {
+    display: none
+}
+
+summary::after {
+    content: ' \1F845';
+}
+details[open] summary:after {
+    content: " \1F847";
 }
 
 details > .tile-collection {
-    margin-left: 24px;
+     margin-left: 24px;
+ }
+
+.collection {
+    background-color: lightcoral;
+    width: fit-content;
+    border-radius: 15px;
+    padding-inline: 20px;
 }
