@@ -1,12 +1,14 @@
 package com.stdust.urlManager.controllers;
 
+import com.stdust.urlManager.model.Tile;
 import com.stdust.urlManager.service.TileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 
 @Controller
@@ -29,5 +31,22 @@ public class TileController {
     public String show(@PathVariable("id") int id, Model model) {
         model.addAttribute("tile", tileService.findById(id));
         return "tiles/show";
+    }
+
+    @GetMapping("/new")
+    public String newTile(@ModelAttribute("tile") Tile tile) {
+        return  "tiles/new";
+    }
+
+    @PostMapping
+    public String create(@ModelAttribute("tile") @Valid Tile tile,
+                         BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            System.out.println("WRONG FORMAT");
+            return null;
+        }
+
+        tileService.save(tile);
+        return "redirect:tiles";
     }
 }
