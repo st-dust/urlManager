@@ -71,3 +71,16 @@ div.button-group {
 div.tile-container:hover > div.button-group{
     display: block;
 }
+
+summary::-webkit-details-marker {
+    color: #00ACF3;
+    font-size: 125%;
+    margin-right: 2px;
+}
+summary:focus {
+    outline-style: none;
+}
+
+details > .tile-collection {
+    margin-left: 24px;
+}

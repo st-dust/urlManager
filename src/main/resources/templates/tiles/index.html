@@ -12,6 +12,8 @@
 <b th:text="'FULL DB OF TILES'">VALUE</b>
 <br/>
 
+<details>
+    <summary>Open tabs</summary>
 <div class="tile-collection" th:each="tile : ${tiles}">
     <div class="tile-container">
         <div class="tile"
@@ -42,6 +44,7 @@
         </div>
     </div>
 </div>
+</details>
 
 </body>
 </html>
