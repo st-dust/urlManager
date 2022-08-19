@@ -42,11 +42,29 @@ public class TileController {
     public String create(@ModelAttribute("tile") @Valid Tile tile,
                          BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            System.out.println("WRONG FORMAT");
-            return null;
+            return "people/edit";
         }
 
         tileService.save(tile);
         return "redirect:tiles";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String edit(@PathVariable("id") int id, Model model) {
+        model.addAttribute("tile", tileService.findById(id));
+        return "tiles/edit";
+    }
+
+    @PatchMapping("/{id}")
+    public String update(@ModelAttribute("tile") @Valid Tile tile,
+                         BindingResult bindingResult, @PathVariable("id") int id) {
+
+        if (bindingResult.hasErrors()) {
+            return "tiles/edit";
+        }
+
+        tileService.update(id, tile);
+
+        return "redirect:/tiles";
     }
 }

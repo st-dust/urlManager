@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit tile</title>
+</head>
+<body>
+
+<form th:method="PATCH" th:action="@{/tiles/{id}(id=${tile.getId})}" th:object="${tile}">
+  <h1>EDITING EXISTING TILE</h1>
+
+  <label for="title">Enter tile of the tile:</label>
+  <input type="text" th:field="*{title}" id="title" />
+  <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{tile}">VALUE</div>
+  <br/>
+
+  <label for="description">Enter description:</label>
+  <input type="text" th:field="*{description}" id="description" />
+  <div style="color:red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">VALUE</div>
+  <br/>
+
+  <label for="url">Enter url:</label>
+  <input type="text" th:field="*{url}" id="url" />
+  <div style="color:red" th:if="${#fields.hasErrors('url')}" th:errors="*{url}">VALUE</div>
+  <br/>
+
+  <input type="submit" value="Update person in DB"/>
+</form>
+
+</body>
+</html>
