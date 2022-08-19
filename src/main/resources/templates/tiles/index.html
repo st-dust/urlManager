@@ -13,34 +13,44 @@
 <br/>
 
 <details>
-    <summary class="collection">Java dev</summary>
-    <div class="tile-collection" th:each="tile : ${tiles}">
-        <div class="tile-container">
-            <div class="tile"
-                 th:data-url="${tile.getUrl()}"
-                 onclick="window.open(this.getAttribute('data-url'),'_blank')">
+    <summary class="collection" title="Expand collection">Java dev</summary>
+    <div>
+        <div class="tile-collection" th:each="tile : ${tiles}">
+            <div class="tile-container">
+                <div class="tile"
+                     th:data-url="${tile.getUrl()}"
+                     onclick="window.open(this.getAttribute('data-url'),'_blank')">
 
-                <span th:text="${tile.getTitle()}">VALUE</span>
-                <p th:text="${tile.getDescription()}">VALUE</p>
+                    <span th:text="${tile.getTitle()}">VALUE</span>
+                    <p th:text="${tile.getDescription()}">VALUE</p>
+                </div>
 
-            </div>
-
-            <div class="button-group">
-                <form action="#"
-                      th:method="DELETE"
-                      th:action="@{http://localhost:8080/tiles/{id}(id=${tile.getId()})}">
-                    <button class="delete-button"
-                            type="submit"
-                            title="Delete">
-                        <i class="fa fa-close"></i>
+                <div class="button-group">
+                    <form action="#"
+                          th:method="DELETE"
+                          th:action="@{http://localhost:8080/tiles/{id}(id=${tile.getId()})}">
+                        <button class="delete-button"
+                                type="submit"
+                                title="Delete">
+                            <i class="fa fa-close"></i>
+                        </button>
+                    </form>
+                    <button class="edit-button"
+                            th:data-url="@{http://localhost:8080/tiles/{id}/edit(id=${tile.getId()})}"
+                            th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"
+                            title="Edit">
+                        <i class="fa fa-edit"></i>
                     </button>
-                </form>
-                <button class="edit-button"
-                        th:data-url="@{http://localhost:8080/tiles/{id}/edit(id=${tile.getId()})}"
-                        th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"
-                        title="Edit">
-                    <i class="fa fa-edit"></i>
-                </button>
+                </div>
+            </div>
+        </div>
+        <div class="tile-collection">
+            <div class="tile-container">
+                <div class="tile-create"
+                     th:attr="onclick=|window.open('http://localhost:8080/tiles/new', '_self')|"
+                     title="Create tile">
+                    <p>NEW TILE</p>
+                </div>
             </div>
         </div>
     </div>

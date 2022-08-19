@@ -28,6 +28,15 @@ p {
     border-radius: 4%;
 }
 
+.tile-container > .tile-create {
+    background-color: lightskyblue;
+    box-shadow: 0 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+
+    word-wrap:break-word;
+    padding: .65rem;
+    border-radius: 4%;
+}
+
 .delete-button {
     alignment: top;
     background-color: gray;
@@ -71,19 +80,6 @@ div.button-group {
 div.tile-container:hover > div.button-group{
     display: block;
 }
-
-/*summary::-webkit-details-marker {*/
-/*    color: #00ACF3;*/
-/*    font-size: 125%;*/
-/*    margin-right: 2px;*/
-/*}*/
-
-/*summary::marker {*/
-/*    color: red;*/
-/*}*/
-/*summary:focus {*/
-/*    outline-style: none;*/
-/*}*/
 
 details>summary {
     list-style: none;
