@@ -28,19 +28,27 @@
     border-radius: 4%;
 }
 
-.tile-create-new {
-    display: inline-block;
-    width: 16%;
-    /*position: inherit;*/
-    /*display: inline-flex;*/
-    height: 180px;
-    vertical-align: top;
+.tile:hover {
+    background-color: deepskyblue;
+}
 
-    background-color: lightskyblue;
+.tile-create-new {
+    display: inline-grid;
+    width: 16%;
+    height: 180px;
+
+    background-color: darkgray;
     box-shadow: 0 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
-    word-wrap:break-word;
     padding: .65rem;
     border-radius: 4%;
+    border: 2px dashed skyblue;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+}
+
+.tile-create-new:hover {
+    background-color: slategray;
 }
 
 .delete-button {
