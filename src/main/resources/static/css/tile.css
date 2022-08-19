@@ -1,10 +1,10 @@
-span {
+.tile-title {
     font-family: sans-serif;
     font-size: 1.5em;
     font-weight: bold;
 }
 
-p {
+.tile-description {
     font-family: sans-serif;
 }
 
@@ -28,10 +28,16 @@ p {
     border-radius: 4%;
 }
 
-.tile-container > .tile-create {
+.tile-create-new {
+    display: inline-block;
+    width: 16%;
+    /*position: inherit;*/
+    /*display: inline-flex;*/
+    height: 180px;
+    vertical-align: top;
+
     background-color: lightskyblue;
     box-shadow: 0 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
-
     word-wrap:break-word;
     padding: .65rem;
     border-radius: 4%;
@@ -85,7 +91,7 @@ details>summary {
     list-style: none;
 }
 summary::-webkit-details-marker {
-    display: none
+    display: none;
 }
 
 summary::after {

@@ -21,8 +21,8 @@
                      th:data-url="${tile.getUrl()}"
                      onclick="window.open(this.getAttribute('data-url'),'_blank')">
 
-                    <span th:text="${tile.getTitle()}">VALUE</span>
-                    <p th:text="${tile.getDescription()}">VALUE</p>
+                    <span class="tile-title" th:text="${tile.getTitle()}">VALUE</span>
+                    <p class="tile-description" th:text="${tile.getDescription()}">VALUE</p>
                 </div>
 
                 <div class="button-group">
@@ -44,15 +44,11 @@
                 </div>
             </div>
         </div>
-        <div class="tile-collection">
-            <div class="tile-container">
-                <div class="tile-create"
+                <div class="tile-create-new"
                      th:attr="onclick=|window.open('http://localhost:8080/tiles/new', '_self')|"
                      title="Create tile">
                     <p>NEW TILE</p>
                 </div>
-            </div>
-        </div>
     </div>
 </details>
 
