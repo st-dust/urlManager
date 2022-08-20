@@ -21,7 +21,7 @@
                      th:data-url="${tile.getUrl()}"
                      onclick="window.open(this.getAttribute('data-url'),'_blank')">
 
-                    <span class="tile-description" th:text="${tile.getTitle()}">VALUE</span>
+                    <span class="tile-title" th:text="${tile.getTitle()}">VALUE</span>
                     <p class="tile-description" th:text="${tile.getDescription()}">VALUE</p>
                 </div>
 
