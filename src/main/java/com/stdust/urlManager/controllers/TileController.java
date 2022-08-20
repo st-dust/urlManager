@@ -1,6 +1,7 @@
 package com.stdust.urlManager.controllers;
 
 import com.stdust.urlManager.model.Tile;
+import com.stdust.urlManager.service.CollectionService;
 import com.stdust.urlManager.service.TileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,15 +16,18 @@ import javax.validation.Valid;
 @RequestMapping("tiles")
 public class TileController {
     private final TileService tileService;
+    private final CollectionService collectionService;
 
     @Autowired
-    public TileController(TileService tileService) {
+    public TileController(TileService tileService, CollectionService collectionService) {
         this.tileService = tileService;
+        this.collectionService = collectionService;
     }
 
     @GetMapping
     public String index(Model model) {
         model.addAttribute("tiles", tileService.findAll());
+        model.addAttribute("collections", collectionService.findAll());
         return "tiles/index";
     }
 

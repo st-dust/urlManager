@@ -11,9 +11,9 @@
 
 <!--<b th:text="'FULL DB OF TILES'">VALUE</b>-->
 <!--<br/>-->
-
+<div th:each="collection : ${collections}">
 <details>
-    <summary class="collection" title="Expand collection">Java dev</summary>
+    <summary class="collection" title="Expand collection" th:text="${collection.getTitle()}">VALUE</summary>
     <div>
         <div class="tile-collection" th:each="tile : ${tiles}">
             <div class="tile-container">
@@ -51,6 +51,7 @@
         </div>
     </div>
 </details>
+</div>
 
 </body>
 </html>
