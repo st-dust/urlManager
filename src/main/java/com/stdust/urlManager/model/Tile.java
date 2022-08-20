@@ -5,7 +5,7 @@ import org.hibernate.validator.constraints.URL;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tile")
+@Table(name = "tiles")
 public class Tile {
     @Id
     @Column(name = "tile_id")
@@ -21,6 +21,10 @@ public class Tile {
     @Column(name = "url")
     @URL
     private String url;
+
+    @ManyToOne
+    @JoinColumn(name = "collection_id", referencedColumnName = "collection_id")
+    private Collection collection;
 
     public Tile() {
     }
@@ -61,5 +65,13 @@ public class Tile {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public Collection getCollection() {
+        return collection;
+    }
+
+    public void setCollection(Collection collection) {
+        this.collection = collection;
     }
 }
