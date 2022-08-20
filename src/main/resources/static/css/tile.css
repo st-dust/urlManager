@@ -113,9 +113,31 @@ details > .tile-collection {
      margin-left: 24px;
  }
 
-.collection {
+.collection-container {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    background-color: blueviolet;
+}
+
+summary {
     background-color: lightcoral;
+    justify-content: center;
     width: fit-content;
-    border-radius: 15px;
-    padding-inline: 20px;
+    border-radius: 30px;
+    height: 100%;
+    padding-top: 15px;
+    padding-inline: 10px;
+}
+
+.options {
+    alignment: bottom;
+    background-color: gray;
+    /*margin: 0;*/
+    /*padding: 0;*/
+    /*border: none;*/
+    /*width: 35px;*/
+    /*height: 35px;*/
+    border-radius: 16px;
+    /*display: block;*/
 }
