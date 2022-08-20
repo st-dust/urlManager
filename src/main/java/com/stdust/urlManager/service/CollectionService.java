@@ -4,12 +4,12 @@ import com.stdust.urlManager.model.Collection;
 import com.stdust.urlManager.model.Tile;
 import com.stdust.urlManager.repositories.CollectionRepository;
 import com.stdust.urlManager.repositories.TileRepository;
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @Transactional(readOnly = true)
@@ -44,5 +44,33 @@ public class CollectionService {
     @Transactional
     public void delete(int id) {
         collectionRepository.deleteById(id);
+    }
+
+    public List<Tile> getTilesByCollectionId(int id) {
+        Optional<Collection> collection = collectionRepository.findById(id);
+
+        if (collection.isPresent()) {
+            Hibernate.initialize(collection.get().getTiles());
+            return collection.get().getTiles();
+        } else {
+            return null;
+        }
+    }
+
+    public Map<String, List<Tile>> collection2tiles() {
+        Map<String,List<Tile>> map = new HashMap<>();
+        String collectionTitle;
+        List<Tile> tilesOfCollection;
+
+        for (Collection collection : collectionRepository.findAll()) {
+            tilesOfCollection =
+                    getTilesByCollectionId(collection.getId());
+            //Check if collection has any Tiles at all
+            if (tilesOfCollection != null) {
+                collectionTitle = collection.getTitle();
+                map.put(collectionTitle, tilesOfCollection);
+            }
+        }
+        return map;
     }
 }

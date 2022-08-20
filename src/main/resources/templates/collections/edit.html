@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit collection</title>
+</head>
+<body>
+
+<form th:method="PATCH" th:action="@{/collections/{id}(id=${collection.getId})}" th:object="${collection}">
+    <h1>EDITING EXISTING COLLECTION</h1>
+
+    <label for="title">Enter new tile of collection:</label>
+    <input type="text" th:field="*{title}" id="title" />
+    <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">VALUE</div>
+    <br/>
+
+    <input type="submit" value="Edit"/>
+</form>
+
+</body>
+</html>

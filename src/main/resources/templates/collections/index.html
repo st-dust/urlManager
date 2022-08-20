@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tiles index</title>
+    <link th:href="@{/css/tile.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<!--<b th:text="'FULL DB OF TILES'">VALUE</b>-->
+<!--<br/>-->
+<div th:each="entry : ${collection2tiles}">
+    <details>
+        <summary class="collection" title="Expand collection" th:text="${entry.key}">VALUE</summary>
+        <div>
+            <div class="tile-collection"
+                 th:each="tile : ${entry.value}">
+                <div class="tile-container">
+                    <div class="tile"
+                         th:data-url="${tile.getUrl()}"
+                         onclick="window.open(this.getAttribute('data-url'),'_blank')">
+                        <span class="tile-title" th:text="${tile.getTitle()}">VALUE</span>
+                        <p class="tile-description" th:text="${tile.getDescription()}">VALUE</p>
+                    </div>
+
+                    <div class="button-group">
+                        <form action="#"
+                              th:method="DELETE"
+                              th:action="@{http://localhost:8080/tiles/{id}(id=${tile.getId()})}">
+                            <button class="delete-button"
+                                    type="submit"
+                                    title="Delete">
+                                <i class="fa fa-close"></i>
+                            </button>
+                        </form>
+                        <button class="edit-button"
+                                th:data-url="@{http://localhost:8080/tiles/{id}/edit(id=${tile.getId()})}"
+                                th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"
+                                title="Edit">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="tile-create-new"
+                 th:attr="onclick=|window.open('http://localhost:8080/tiles/new', '_self')|"
+                 title="CREATE TILE">
+                <i class="fa fa-plus"></i>
+            </div>
+        </div>
+    </details>
+</div>
+
+</body>
+</html>

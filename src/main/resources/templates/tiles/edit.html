@@ -12,7 +12,7 @@
 
   <label for="title">Enter tile of the tile:</label>
   <input type="text" th:field="*{title}" id="title" />
-  <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{tile}">VALUE</div>
+  <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">VALUE</div>
   <br/>
 
   <label for="description">Enter description:</label>

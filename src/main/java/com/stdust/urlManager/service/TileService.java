@@ -1,5 +1,6 @@
 package com.stdust.urlManager.service;
 
+import com.stdust.urlManager.model.Collection;
 import com.stdust.urlManager.model.Tile;
 import com.stdust.urlManager.repositories.TileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,4 +44,5 @@ public class TileService {
     public void delete(int id) {
         tileRepository.deleteById(id);
     }
+
 }
