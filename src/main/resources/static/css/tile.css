@@ -36,10 +36,7 @@
 }
 
 .tile-container {
-    /*display: inline-flex;*/
-    /*height: 200px;*/
     margin-bottom: 1%;
-    /*vertical-align: center;*/
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1em;
@@ -64,18 +61,24 @@
 }
 
 .tile-create-new {
-    /*display: inline-grid;*/
-    /*width: 250px;*/
-    /*height: 180px;*/
+    display: table;
 
+    vertical-align: center;
     background-color: darkgray;
     box-shadow: 0 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-    /*padding: .65rem;*/
-    /*border-radius: 4%;*/
     border: 2px dashed skyblue;
-    /*align-items: center;*/
-    /*justify-content: center;*/
-    /*vertical-align: top;*/
+
+    word-wrap: break-word;
+    padding: .65rem;
+    border-radius: 4%;
+    min-height: 140px;
+    max-height: 300px;
+}
+
+.icon-add-tile {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .tile-create-new:hover {
