@@ -11,9 +11,9 @@
 <!--<b th:text="'FULL DB OF TILES'">VALUE</b>-->
 <!--<br/>-->
 <div class="collection-container">
-<!--    <div th:each="entry : ${collection2tiles}">-->
-        <details th:each="entry : ${collection2tiles}" class="collection-expand">
-            <summary class="collection" title="Expand collection" th:text="${entry.key}">VALUE</summary>
+    <div class="collection-expand">
+        <details th:each="entry : ${collection2tiles}">
+            <summary title="Expand collection" th:text="${entry.key}" style="font-size: 170%">VALUE</summary>
             <div>
                 <div class="tile-collection"
                      th:each="tile : ${entry.value}">
@@ -51,12 +51,12 @@
                 </div>
             </div>
         </details>
-<!--    </div>-->
+    </div>
 
     <div class="options">
-        <div>
-            <img src="icons/three-dots-vertical.svg">
-            <div>
+<!--        <div>-->
+            <img src="icons/three-dots-vertical.svg" style="width: 100%; height: 100%;">
+<!--            </div>-->
 <!--        <button-->
 <!--                th:data-url="@{http://localhost:8080/tiles/{id}/edit(id=${tile.getId()})}"-->
 <!--                th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"-->

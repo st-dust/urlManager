@@ -117,27 +117,29 @@ details > .tile-collection {
     height: 50px;
     display: flex;
     justify-content: space-between;
-    background-color: blueviolet;
+    /*background-color: blueviolet;*/
 }
 
-summary {
+.collection-expand {
     background-color: lightcoral;
-    justify-content: center;
+    /*justify-content: center;*/
     width: fit-content;
+    text-align: center;
     border-radius: 30px;
-    height: 100%;
-    padding-top: 15px;
-    padding-inline: 10px;
+    /*height: 100%;*/
+    display: block;
+    /*padding-top: 15px;*/
+    padding-inline: 13px;
 }
 
 .options {
-    alignment: bottom;
-    background-color: gray;
-    /*margin: 0;*/
-    /*padding: 0;*/
-    /*border: none;*/
-    /*width: 35px;*/
-    /*height: 35px;*/
+    width: 40px;
+    background-color: darksalmon;
     border-radius: 16px;
-    /*display: block;*/
+
+    /*padding-top: 15px;*/
+    padding-block: 15px;
+
+    /*display: inline-block;*/
+    /*vertical-align: center;*/
 }
