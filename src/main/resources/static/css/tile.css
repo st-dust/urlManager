@@ -1,12 +1,11 @@
 .collection {
-    /*height: auto;*/
     display: flex;
     justify-content: space-between;
-    /*background-color: blueviolet;*/
+    border-radius: 5%;
 }
 
 .collection-expand-button {
-    vertical-align: center;
+    max-width: 94%;
     cursor: pointer;
 }
 
@@ -50,12 +49,14 @@
     word-wrap: break-word;
     padding: .65rem;
     border-radius: 4%;
-    min-height: 140px;
-    max-height: 300px;
+    height: 200px;
+}
+
+.tile:hover {
+    background-color: deepskyblue;
 }
 
 .tile:hover .button-group{
-    background-color: deepskyblue;
     display: block;
     cursor: pointer;
 }
@@ -63,7 +64,6 @@
 .tile-create-new {
     display: table;
 
-    vertical-align: center;
     background-color: darkgray;
     box-shadow: 0 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
     border: 2px dashed skyblue;
@@ -152,29 +152,13 @@ details > .tile-collection {
 }
 
 .options-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    /*width: 80px;*/
-    /*margin-top: inherit;*/
-    background-color: deepskyblue;
-    border-radius: 16px;
-    padding-block: 15px;
-}
-
-.options {
-    width: 80px;
-    /*height: 200%;*/
+    display: table;
+    height: auto;
+    width: 4%;
     background-color: tan;
-    border-radius: 16px;
-    padding-inline: 15px;
-    /*width: 30px;*/
+    border-radius: 25%;
 }
-
-/*.options:hover {*/
-/*    background-color: darksalmon;*/
-/*}*/
 
 div.options:hover {
-    /*display: ;*/
     background-color: darksalmon;
 }
