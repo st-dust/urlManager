@@ -13,45 +13,42 @@
         <div class="collection-details">
             <details th:each="entry : ${collection2tiles}">
                 <summary title="Expand collection" th:text="${entry.key}" style="font-size: 170%">VALUE</summary>
-                <div class="tile-collection"
-                     th:each="tile : ${entry.value}">
-                    <div class="tile-container">
+                <div class="tile-container">
+                    <div th:each="tile : ${entry.value}">
                         <div class="tile"
                              th:data-url="${tile.getUrl()}"
                              onclick="window.open(this.getAttribute('data-url'),'_blank')">
                             <span class="tile-title" th:text="${tile.getTitle()}">VALUE</span>
                             <p class="tile-description" th:text="${tile.getDescription()}">VALUE</p>
-                        </div>
 
-                        <div class="button-group">
-                            <form action="#"
-                                  th:method="DELETE"
-                                  th:action="@{http://localhost:8080/tiles/{id}(id=${tile.getId()})}">
-                                <button class="delete-button"
-                                        type="submit"
-                                        title="Delete">
-                                    <img src="icons/trash.svg">
+                            <div class="button-group">
+                                <form action="#"
+                                      th:method="DELETE"
+                                      th:action="@{http://localhost:8080/tiles/{id}(id=${tile.getId()})}">
+                                    <button class="delete-button"
+                                            type="submit"
+                                            title="Delete">
+                                        <img src="icons/trash.svg">
+                                    </button>
+                                </form>
+                                <button class="edit-button"
+                                        th:data-url="@{http://localhost:8080/tiles/{id}/edit(id=${tile.getId()})}"
+                                        th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"
+                                        title="Edit">
+                                    <img src="icons/pen.svg">
                                 </button>
-                            </form>
-                            <button class="edit-button"
-                                    th:data-url="@{http://localhost:8080/tiles/{id}/edit(id=${tile.getId()})}"
-                                    th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"
-                                    title="Edit">
-                                <img src="icons/pen.svg">
-                            </button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="tile-collection">
-                    <div class="tile-container">
-                        <div class="tile-create-new"
-                             th:attr="onclick=|window.open('http://localhost:8080/tiles/new', '_self')|"
-                             title="CREATE TILE">
-                            <img src="icons/plus-square-dotted.svg">
-                        </div>
-                    </div>
-                </div>
+<!--                <div class="tile-container">-->
+<!--                    <div class="tile-create-new"-->
+<!--                         th:attr="onclick=|window.open('http://localhost:8080/tiles/new', '_self')|"-->
+<!--                         title="CREATE TILE">-->
+<!--                        <img src="icons/plus-square-dotted.svg">-->
+<!--                    </div>-->
+<!--                </div>-->
             </details>
         </div>
 

@@ -31,6 +31,10 @@
     font-family: sans-serif;
 }
 
+.tile-wrap {
+    background-color: darkcyan;
+}
+
 .tile-container {
     /*display: inline-flex;*/
     /*height: 200px;*/
@@ -41,18 +45,22 @@
     gap: 1em;
 }
 
-.tile-container .tile {
+.tile {
+    position: relative;
     background-color: lightskyblue;
     box-shadow: 0 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 
     word-wrap: break-word;
     padding: .65rem;
     border-radius: 4%;
-    /*height: 140px;*/
+    min-height: 140px;
+    max-height: 300px;
 }
 
-.tile:hover {
+.tile:hover .button-group{
     background-color: deepskyblue;
+    display: block;
+    cursor: pointer;
 }
 
 .tile-create-new {
@@ -107,15 +115,17 @@
     background-color: darkorange;
 }
 
-div.button-group {
+.button-group {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+
     margin: 0;
     padding: 0;
     cursor: pointer;
     display: none;
-}
 
-div.tile-container:hover > div.button-group {
-    display: block;
+    border: 3px solid #73AD21;
 }
 
 details > summary {
