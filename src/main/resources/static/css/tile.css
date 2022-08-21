@@ -134,12 +134,15 @@ details > .tile-collection {
 
 .options {
     width: 40px;
-    background-color: darksalmon;
+    background-color: tan;
     border-radius: 16px;
-
-    /*padding-top: 15px;*/
     padding-block: 15px;
+}
 
-    /*display: inline-block;*/
-    /*vertical-align: center;*/
+.options:hover {
+    background-color: darksalmon;
+}
+
+.collection-expand:hover {
+    background-color: indianred;
 }
