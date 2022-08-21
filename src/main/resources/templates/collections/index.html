@@ -8,13 +8,11 @@
 </head>
 <body>
 
-<!--<b th:text="'FULL DB OF TILES'">VALUE</b>-->
-<!--<br/>-->
-<div class="collection-container">
-    <div class="collection-expand">
-        <details th:each="entry : ${collection2tiles}">
-            <summary title="Expand collection" th:text="${entry.key}" style="font-size: 170%">VALUE</summary>
-            <div>
+<div class="collection">
+    <div class="collection-expand-button">
+        <div class="collection-details">
+            <details th:each="entry : ${collection2tiles}">
+                <summary title="Expand collection" th:text="${entry.key}" style="font-size: 170%">VALUE</summary>
                 <div class="tile-collection"
                      th:each="tile : ${entry.value}">
                     <div class="tile-container">
@@ -44,37 +42,37 @@
                         </div>
                     </div>
                 </div>
-                <div class="tile-create-new"
-                     th:attr="onclick=|window.open('http://localhost:8080/tiles/new', '_self')|"
-                     title="CREATE TILE">
-                    <img src="icons/plus-square-dotted.svg" style="width: 200%; height: 200%;">
+
+                <div class="tile-collection">
+                    <div class="tile-container">
+                        <div class="tile-create-new"
+                             th:attr="onclick=|window.open('http://localhost:8080/tiles/new', '_self')|"
+                             title="CREATE TILE">
+                            <img src="icons/plus-square-dotted.svg">
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </details>
+            </details>
+        </div>
+
     </div>
 
-    <div class="options">
-<!--        <div>-->
+    <div class="options-wrapper">
+        <div class="options">
             <img src="icons/three-dots-vertical.svg" style="width: 100%; height: 100%;">
-<!--            </div>-->
-<!--        <button-->
-<!--                th:data-url="@{http://localhost:8080/tiles/{id}/edit(id=${tile.getId()})}"-->
-<!--                th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"-->
-<!--                title="Edit">-->
-<!--            <i class="fa fa-edit"></i>-->
-<!--        </button>-->
 
-<!--        <form action="#"-->
-<!--              th:method="DELETE"-->
-<!--              th:action="@{http://localhost:8080/collections/3}">-->
-<!--            <button-->
-<!--                    type="submit"-->
-<!--                    title="DELETE COLL">-->
-<!--                <span> DELETE </span>-->
-<!--            </button>-->
-<!--        </form>-->
+
+        </div>
+
+        <div class="afsadfas">
+            <img src="icons/pen.svg">
+            <!--            <button class="edit-button"-->
+            <!--                    th:attr="onclick=|window.open('https://google.com', '_self')|"-->
+            <!--                    title="Edit">-->
+            <!--                <img src="icons/pen.svg">-->
+            <!--            </button>-->
+        </div>
     </div>
-
 </div>
 
 </body>
