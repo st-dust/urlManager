@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Tiles index</title>
     <link th:href="@{/css/tile.css}" rel="stylesheet"/>
+    <link th:href="@{/css/icons}" rel="icon"/>
 </head>
 <body>
 
@@ -23,7 +24,7 @@
 
                             <div class="button-group">
                                 <a class="icon-centered-position">
-                                    <img src="icons/three-dots-vertical.svg" style="height: 100%; width: 100%;">
+                                    <img src="/icons/three-dots-vertical.svg" style="height: 100%; width: 100%;">
                                 </a>
                                 <div class="tile-options">
                                     <form action="#"
@@ -32,14 +33,14 @@
                                         <button class="options-delete-button"
                                                 type="submit"
                                                 title="Delete">
-                                            <img src="icons/trash.svg">
+                                            <img src="/icons/trash.svg">
                                         </button>
                                     </form>
                                     <button class="options-edit-button"
                                             th:data-url="@{http://localhost:8080/tiles/{id}/edit(id=${tile.getId()})}"
                                             th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"
                                             title="Edit">
-                                        <img src="icons/pen.svg">
+                                        <img src="/icons/pen.svg">
                                     </button>
                                 </div>
                             </div>
@@ -50,7 +51,7 @@
                          th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"
                          title="Create NEW tile">
                         <a class="icon-centered-position">
-                            <img src="icons/plus-square-dotted.svg" style="height: 25%; width: 25%;">
+                            <img src="/icons/plus-square-dotted.svg" style="height: 25%; width: 25%;">
                         </a>
                     </div>
                 </div>
@@ -61,7 +62,7 @@
 
     <div class="options-wrapper" title="More options">
         <a class="icon-add-tile">
-            <img src="icons/three-dots-vertical.svg" style="height: 100%; width: 100%;">
+            <img src="/icons/three-dots-vertical.svg" style="height: 100%; width: 100%;">
         </a>
         <div class="options">
             <div>
@@ -71,14 +72,14 @@
                     <button class="delete-button"
                             type="submit"
                             title="Delete collection">
-                        <img src="icons/trash.svg">
+                        <img src="/icons/trash.svg">
                     </button>
                 </form>
                 <button class="edit-button"
                         th:data-url="@{http://localhost:8080/collections/{id}/edit(id=${entry.key.getId()})}"
                         th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"
                         title="Edit collection">
-                    <img src="icons/pen.svg">
+                    <img src="/icons/pen.svg">
                 </button>
             </div>
         </div>
@@ -90,7 +91,7 @@
      th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"
     title="Add new collection">
 <!--    <a class="icon-centered-position">-->
-        <img src="icons/plus-square-dotted.svg" style="height: 75%; width: 75%;">
+        <img src="/icons/plus-square-dotted.svg" style="height: 75%; width: 75%;">
 <!--    </a>-->
 </button>
 

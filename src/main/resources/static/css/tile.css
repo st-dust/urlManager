@@ -1,23 +1,30 @@
 .new-collection {
     height: 50px;
-    width: 200px;
+    width: 94%;
     border-radius: 30px;
     cursor: pointer;
-    margin-left: 1%;
+    /*margin-left: 1%;*/
     border: 0;
     box-shadow: 0 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    background-color: darkgray;
+}
+
+.new-collection:hover {
+    background-color: navajowhite;
 }
 
 .collection {
-    margin: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
     display: flex;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
 }
 
 .collection-expand-button {
-    max-width: 94%;
+    width: 94%;
     cursor: pointer;
     border-radius: 30px;
+    margin-right: 1%;
 }
 
 .collection-details {
@@ -99,9 +106,9 @@
     margin: 0;
     padding: 0;
     border: none;
-    width: 35px;
-    height: 35px;
-    border-radius: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
 }
 
 .edit-button {
@@ -110,9 +117,9 @@
     margin: 0;
     padding: 0;
     border: none;
-    width: 35px;
-    height: 35px;
-    border-radius: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
 }
 
 
@@ -146,11 +153,11 @@ summary::-webkit-details-marker {
 }
 
 summary::after {
-    content: ' \1F845';
+    content: " \1F841";
 }
 
 details[open] summary:after {
-    content: " \1F847";
+    content: " \1F843";
 }
 
 details > .tile-collection {
@@ -163,7 +170,7 @@ details > .tile-collection {
     display: table;
     padding: 0;
     margin: 0;
-    width: 2%;
+    width: 3%;
     height: 4%;
     background-color: tan;
     border-radius: 25%;
@@ -171,8 +178,8 @@ details > .tile-collection {
 
 .options {
     position: absolute;
-    bottom: -230%;
-    right: 0;
+    top: 0;
+    right: -30px;
 
     margin: 0;
     padding: 0;
