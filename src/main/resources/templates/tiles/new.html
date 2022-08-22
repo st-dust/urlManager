@@ -8,10 +8,11 @@
 </head>
 <body>
 
-<form th:method="POST" th:action="@{/tiles}" th:object="${tile}">
+<form th:method="POST" th:action="@{/tiles/new}"
+      th:object="${newTile}">
     <h1>CREATING NEW TILE</h1>
-    <label for="title">Enter tile of the tile:</label>
-    <input type="text" th:field="*{title}" id="title" />
+    <label for="newTile">Enter title of the tile:</label>
+    <input type="text" th:field="*{title}" id="newTile" />
 <!--    <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{tile}">VALUE</div>-->
     <br/>
 

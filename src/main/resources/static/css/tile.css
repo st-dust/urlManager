@@ -1,7 +1,7 @@
 .collection {
     display: flex;
     justify-content: space-between;
-    height: max-content;
+    height: 50%;
 }
 
 .collection-expand-button {

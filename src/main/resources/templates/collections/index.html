@@ -46,7 +46,8 @@
                         </div>
                     </div>
                     <div class="tile-create-new"
-                         th:attr="onclick=|window.open('http://localhost:8080/tiles/new', '_self')|"
+                         th:data-url="@{http://localhost:8080/tiles/new/{collectionId}(collectionId=${entry.key.getId()})}"
+                         th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"
                          title="Create NEW tile">
                         <a class="icon-centered-position">
                             <img src="icons/plus-square-dotted.svg" style="height: 25%; width: 25%;">
@@ -83,6 +84,13 @@
         </div>
     </div>
 </div>
+
+<!--<div th:data-url="@{http://localhost:8080/collections/new}"-->
+<!--     th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|">-->
+<!--    <a class="icon-centered-position">-->
+<!--        <img src="icons/plus-square-dotted.svg" style="height: 25%; width: 25%;">-->
+<!--    </a>-->
+<!--</div>-->
 
 </body>
 </html>
