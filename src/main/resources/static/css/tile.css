@@ -1,13 +1,23 @@
+.new-collection {
+    height: 50px;
+    width: 200px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-left: 1%;
+    border: 0;
+    box-shadow: 0 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
 .collection {
+    margin: 1%;
     display: flex;
     justify-content: space-between;
-    height: 50%;
 }
 
 .collection-expand-button {
     max-width: 94%;
-    /*height: 5%;*/
     cursor: pointer;
+    border-radius: 30px;
 }
 
 .collection-details {
@@ -15,6 +25,7 @@
     border-radius: 30px;
     display: block;
     padding-inline: 13px;
+    box-shadow: 0 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 
 .collection-details:hover {
@@ -29,10 +40,6 @@
 
 .tile-description {
     font-family: sans-serif;
-}
-
-.tile-wrap {
-    background-color: darkcyan;
 }
 
 .tile-container {
@@ -53,10 +60,13 @@
     height: 200px;
 }
 
-.tile:hover .button-group{
+.tile:hover .button-group {
     display: block;
     cursor: pointer;
-    background-color: dodgerblue;
+}
+
+.tile:hover {
+    background-color: deepskyblue;
 }
 
 .tile-create-new {
@@ -91,7 +101,7 @@
     border: none;
     width: 35px;
     height: 35px;
-    border-radius: 16px;
+    border-radius: 10px;
 }
 
 .edit-button {
@@ -102,7 +112,7 @@
     border: none;
     width: 35px;
     height: 35px;
-    border-radius: 16px;
+    border-radius: 10px;
 }
 
 
@@ -123,6 +133,8 @@
     padding: 0;
     cursor: pointer;
     display: none;
+
+    border-radius: 25%;
 }
 
 details > summary {
@@ -183,8 +195,8 @@ div.options-wrapper:hover {
     margin: 0;
     padding: 0;
     border: none;
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
     border-radius: 25%;
 }
 
@@ -194,8 +206,8 @@ div.options-wrapper:hover {
     margin: 0;
     padding: 0;
     border: none;
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
     border-radius: 25%;
 }
 
@@ -220,8 +232,8 @@ div.options-wrapper:hover {
 
 .tile-options {
     position: absolute;
-    bottom: -300%;
-    right: -100%;
+    bottom: -200%;
+    right: -50%;
 
     margin: 0;
     padding: 0;

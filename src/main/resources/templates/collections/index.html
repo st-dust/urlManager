@@ -29,13 +29,13 @@
                                     <form action="#"
                                           th:method="DELETE"
                                           th:action="@{http://localhost:8080/tiles/{id}(id=${tile.getId()})}">
-                                        <button class="delete-button"
+                                        <button class="options-delete-button"
                                                 type="submit"
                                                 title="Delete">
                                             <img src="icons/trash.svg">
                                         </button>
                                     </form>
-                                    <button class="edit-button"
+                                    <button class="options-edit-button"
                                             th:data-url="@{http://localhost:8080/tiles/{id}/edit(id=${tile.getId()})}"
                                             th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"
                                             title="Edit">
@@ -68,13 +68,13 @@
                 <form action="#"
                       th:method="DELETE"
                       th:action="@{http://localhost:8080/collections/{id}(id=${entry.key.getId()})}" >
-                    <button class="options-delete-button"
+                    <button class="delete-button"
                             type="submit"
                             title="Delete collection">
                         <img src="icons/trash.svg">
                     </button>
                 </form>
-                <button class="options-edit-button"
+                <button class="edit-button"
                         th:data-url="@{http://localhost:8080/collections/{id}/edit(id=${entry.key.getId()})}"
                         th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"
                         title="Edit collection">
@@ -85,12 +85,14 @@
     </div>
 </div>
 
-<!--<div th:data-url="@{http://localhost:8080/collections/new}"-->
-<!--     th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|">-->
+<button class="new-collection"
+     th:data-url="@{http://localhost:8080/collections/new}"
+     th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"
+    title="Add new collection">
 <!--    <a class="icon-centered-position">-->
-<!--        <img src="icons/plus-square-dotted.svg" style="height: 25%; width: 25%;">-->
+        <img src="icons/plus-square-dotted.svg" style="height: 75%; width: 75%;">
 <!--    </a>-->
-<!--</div>-->
+</button>
 
 </body>
 </html>

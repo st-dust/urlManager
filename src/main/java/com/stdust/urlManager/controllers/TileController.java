@@ -37,10 +37,6 @@ public class TileController {
         return "tiles/show";
     }
 
-
-    //========================================================
-
-
     @GetMapping("/new/{collectionId}")
     public String newTile(@ModelAttribute("newTile") Tile newTile,
                           @PathVariable("collectionId") int collectionId) {
@@ -62,10 +58,6 @@ public class TileController {
         return "redirect:../collections";
     }
 
-
-    //========================================================
-
-
     @GetMapping("/{id}/edit")
     public String edit(@PathVariable("id") int id, Model model) {
         model.addAttribute("tile", tileService.findById(id));
@@ -82,12 +74,12 @@ public class TileController {
 
         tileService.update(id, tile);
 
-        return "redirect:/tiles";
+        return "redirect:/collections";
     }
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") int id) {
         tileService.delete(id);
-        return "redirect:/tiles";
+        return "redirect:/collections";
     }
 }
