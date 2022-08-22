@@ -1,10 +1,7 @@
 .collection {
-    background-color: #73AD21;
     display: flex;
     justify-content: space-between;
-
     height: max-content;
-    /*border-radius: 5%;*/
 }
 
 .collection-expand-button {
@@ -41,7 +38,7 @@
 .tile-container {
     margin-bottom: 1%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 1em;
 }
 
@@ -98,7 +95,6 @@
     width: 35px;
     height: 35px;
     border-radius: 16px;
-    display: block;
 }
 
 .edit-button {
@@ -110,7 +106,6 @@
     width: 35px;
     height: 35px;
     border-radius: 16px;
-    display: block;
 }
 
 
@@ -156,17 +151,63 @@ details > .tile-collection {
 }
 
 .options-wrapper {
+    position: relative;
+
     display: table;
-    /*height: fit-content;*/
-    /*padding-top: 1%;*/
-    /*padding-bottom: 1%;*/
+    padding: 0;
+    margin: 0;
     width: 2%;
-    /*height: 10%;*/
+    height: 4%;
     background-color: tan;
     border-radius: 25%;
 }
 
+.options {
+    position: absolute;
+    bottom: -230%;
+    right: 0;
+
+    margin: 0;
+    padding: 0;
+
+    display: none;
+}
+
+.options-wrapper:hover .options {
+    display: block;
+    cursor: pointer;
+}
+
 div.options-wrapper:hover {
     background-color: darksalmon;
-    cursor: pointer;
+}
+
+.options-delete-button {
+    alignment: top;
+    background-color: gray;
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 25%;
+}
+
+.options-edit-button {
+    alignment: top;
+    background-color: gray;
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 25%;
+}
+
+.options-delete-button:hover {
+    background-color: red;
+}
+
+.options-edit-button:hover {
+    background-color: darkorange;
 }
