@@ -25,7 +25,6 @@ public class CollectionController {
 
     @GetMapping
     public String index(Model model) {
-        //TODO: Pass only matching tiles
         model.addAttribute("tiles", tileService.findAll());
         model.addAttribute("collection2tiles", collectionService.collection2tiles());
         return "collections/index";

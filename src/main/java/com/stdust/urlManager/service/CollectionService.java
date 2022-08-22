@@ -57,9 +57,9 @@ public class CollectionService {
         }
     }
 
-    public Map<String, List<Tile>> collection2tiles() {
-        Map<String,List<Tile>> map = new HashMap<>();
-        String collectionTitle;
+    public Map<Collection, List<Tile>> collection2tiles() {
+        Map<Collection,List<Tile>> map = new HashMap<>();
+        Collection foundCollection;
         List<Tile> tilesOfCollection;
 
         for (Collection collection : collectionRepository.findAll()) {
@@ -67,8 +67,8 @@ public class CollectionService {
                     getTilesByCollectionId(collection.getId());
             //Check if collection has any Tiles at all
             if (tilesOfCollection != null) {
-                collectionTitle = collection.getTitle();
-                map.put(collectionTitle, tilesOfCollection);
+                foundCollection = collection;
+                map.put(foundCollection, tilesOfCollection);
             }
         }
         return map;
