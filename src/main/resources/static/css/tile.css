@@ -1,11 +1,15 @@
 .collection {
+    background-color: #73AD21;
     display: flex;
     justify-content: space-between;
-    border-radius: 5%;
+
+    height: max-content;
+    /*border-radius: 5%;*/
 }
 
 .collection-expand-button {
     max-width: 94%;
+    /*height: 5%;*/
     cursor: pointer;
 }
 
@@ -153,12 +157,16 @@ details > .tile-collection {
 
 .options-wrapper {
     display: table;
-    height: auto;
-    width: 4%;
+    /*height: fit-content;*/
+    /*padding-top: 1%;*/
+    /*padding-bottom: 1%;*/
+    width: 2%;
+    /*height: 10%;*/
     background-color: tan;
     border-radius: 25%;
 }
 
-div.options:hover {
+div.options-wrapper:hover {
     background-color: darksalmon;
+    cursor: pointer;
 }
