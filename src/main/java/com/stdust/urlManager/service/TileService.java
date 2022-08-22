@@ -2,6 +2,7 @@ package com.stdust.urlManager.service;
 
 import com.stdust.urlManager.model.Collection;
 import com.stdust.urlManager.model.Tile;
+import com.stdust.urlManager.repositories.CollectionRepository;
 import com.stdust.urlManager.repositories.TileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,10 +15,13 @@ import java.util.Optional;
 @Transactional(readOnly = true)
 public class TileService {
     private final TileRepository tileRepository;
+    private final CollectionRepository collectionRepository;
+    private int collectionId;
 
     @Autowired
-    public TileService(TileRepository tileRepository) {
+    public TileService(TileRepository tileRepository, CollectionRepository collectionRepository) {
         this.tileRepository = tileRepository;
+        this.collectionRepository = collectionRepository;
     }
 
     public List<Tile> findAll() {
@@ -45,4 +49,23 @@ public class TileService {
         tileRepository.deleteById(id);
     }
 
+    @Transactional
+    public void updateCollectionInTile(Tile tile, int collectionId) throws ClassNotFoundException{
+        Optional<Collection> collection = collectionRepository.findById(collectionId);
+
+        if (collection.isEmpty()) {
+            throw new ClassNotFoundException("Collection with such ID was not found");
+        }
+
+        tile.setCollection(collection.get());
+        tileRepository.save(tile);
+    }
+
+    public int getCollectionId() {
+        return collectionId;
+    }
+
+    public void setCollectionId(int collectionId) {
+        this.collectionId = collectionId;
+    }
 }

@@ -13,7 +13,7 @@ import javax.validation.Valid;
 
 
 @Controller
-@RequestMapping("tiles")
+@RequestMapping("/tiles")
 public class TileController {
     private final TileService tileService;
     private final CollectionService collectionService;
@@ -37,21 +37,34 @@ public class TileController {
         return "tiles/show";
     }
 
-    @GetMapping("/new")
-    public String newTile(@ModelAttribute("tile") Tile tile) {
+
+    //========================================================
+
+
+    @GetMapping("/new/{collectionId}")
+    public String newTile(@ModelAttribute("newTile") Tile newTile,
+                          @PathVariable("collectionId") int collectionId) {
+        //Is this normal solution for passing this collectionId into POST method?
+        tileService.setCollectionId(collectionId);
         return  "tiles/new";
     }
 
-    @PostMapping
-    public String create(@ModelAttribute("tile") @Valid Tile tile,
-                         BindingResult bindingResult) {
+    @PostMapping("/new")
+    public String create(@ModelAttribute("newTile") @Valid Tile newTile,
+                         BindingResult bindingResult
+                        ) {
         if (bindingResult.hasErrors()) {
-            return "people/edit";
+            return "tiles/edit";
         }
 
-        tileService.save(tile);
-        return "redirect:tiles";
+        newTile.setCollection(collectionService.findById(tileService.getCollectionId()));
+        tileService.save(newTile);
+        return "redirect:../collections";
     }
+
+
+    //========================================================
+
 
     @GetMapping("/{id}/edit")
     public String edit(@PathVariable("id") int id, Model model) {
