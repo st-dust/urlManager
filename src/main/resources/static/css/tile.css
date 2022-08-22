@@ -53,13 +53,10 @@
     height: 200px;
 }
 
-.tile:hover {
-    background-color: deepskyblue;
-}
-
 .tile:hover .button-group{
     display: block;
     cursor: pointer;
+    background-color: dodgerblue;
 }
 
 .tile-create-new {
@@ -76,7 +73,7 @@
     max-height: 300px;
 }
 
-.icon-add-tile {
+.icon-centered-position {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
@@ -119,15 +116,13 @@
 
 .button-group {
     position: absolute;
-    top: -30px;
-    right: -30px;
+    top: 2%;
+    right: 2%;
 
     margin: 0;
     padding: 0;
     cursor: pointer;
     display: none;
-
-    border: 3px solid #73AD21;
 }
 
 details > summary {
@@ -211,3 +206,31 @@ div.options-wrapper:hover {
 .options-edit-button:hover {
     background-color: darkorange;
 }
+
+.collection-options {
+    position: absolute;
+    bottom: -230%;
+    right: 0;
+
+    margin: 0;
+    padding: 0;
+
+    display: none;
+}
+
+.tile-options {
+    position: absolute;
+    bottom: -300%;
+    right: -100%;
+
+    margin: 0;
+    padding: 0;
+
+    display: none;
+}
+
+.button-group:hover .tile-options {
+    display: block;
+}
+
+

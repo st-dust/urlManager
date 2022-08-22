@@ -22,28 +22,33 @@
                             <p class="tile-description" th:text="${tile.getDescription()}">VALUE</p>
 
                             <div class="button-group">
-                                <form action="#"
-                                      th:method="DELETE"
-                                      th:action="@{http://localhost:8080/tiles/{id}(id=${tile.getId()})}">
-                                    <button class="delete-button"
-                                            type="submit"
-                                            title="Delete">
-                                        <img src="icons/trash.svg">
+                                <a class="icon-centered-position">
+                                    <img src="icons/three-dots-vertical.svg" style="height: 100%; width: 100%;">
+                                </a>
+                                <div class="tile-options">
+                                    <form action="#"
+                                          th:method="DELETE"
+                                          th:action="@{http://localhost:8080/tiles/{id}(id=${tile.getId()})}">
+                                        <button class="delete-button"
+                                                type="submit"
+                                                title="Delete">
+                                            <img src="icons/trash.svg">
+                                        </button>
+                                    </form>
+                                    <button class="edit-button"
+                                            th:data-url="@{http://localhost:8080/tiles/{id}/edit(id=${tile.getId()})}"
+                                            th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"
+                                            title="Edit">
+                                        <img src="icons/pen.svg">
                                     </button>
-                                </form>
-                                <button class="edit-button"
-                                        th:data-url="@{http://localhost:8080/tiles/{id}/edit(id=${tile.getId()})}"
-                                        th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"
-                                        title="Edit">
-                                    <img src="icons/pen.svg">
-                                </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="tile-create-new"
                          th:attr="onclick=|window.open('http://localhost:8080/tiles/new', '_self')|"
                          title="Create NEW tile">
-                        <a class="icon-add-tile">
+                        <a class="icon-centered-position">
                             <img src="icons/plus-square-dotted.svg" style="height: 25%; width: 25%;">
                         </a>
                     </div>
@@ -61,17 +66,17 @@
             <div>
                 <form action="#"
                       th:method="DELETE"
-                      th:action="@{http://loca:8080/collections/{id}(id=${entry.key.getId()})}" >
+                      th:action="@{http://localhost:8080/collections/{id}(id=${entry.key.getId()})}" >
                     <button class="options-delete-button"
                             type="submit"
-                            title="Delete">
+                            title="Delete collection">
                         <img src="icons/trash.svg">
                     </button>
                 </form>
                 <button class="options-edit-button"
                         th:data-url="@{http://localhost:8080/collections/{id}/edit(id=${entry.key.getId()})}"
                         th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"
-                        title="Edit">
+                        title="Edit collection">
                     <img src="icons/pen.svg">
                 </button>
             </div>
