@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Admin page</title>
+    <meta charset="UTF-8">
+    <title>Admin page</title>
+    <link th:href="@{/css/admin.css}" rel="stylesheet"/>
 </head>
 <body>
-ADMINISTRATOR - ONLY PAGE
+
+<div class="admin-options">
+        <div class="delete-users"
+             th:data-url="@{http://localhost:8080/admin/deleteusers}"
+             th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"
+             title="Edit collection"
+        >Delete users</div>
+        <div class="set-admins">Set/unset admins</div>
+</div>
+
 </body>
 </html>
