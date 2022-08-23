@@ -15,13 +15,13 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/auth")
-public class AuthController {
+public class AuthenticationController {
 
     private final RegistrationService registrationService;
     private final PersonValidator personValidator;
 
     @Autowired
-    public AuthController(RegistrationService registrationService, PersonValidator personValidator) {
+    public AuthenticationController(RegistrationService registrationService, PersonValidator personValidator) {
         this.registrationService = registrationService;
         this.personValidator = personValidator;
     }
@@ -48,4 +48,5 @@ public class AuthController {
 
         return "redirect:/auth/login";
     }
+
 }
