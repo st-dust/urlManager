@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin page</title>
+    <link th:href="@{/css/admin.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="admin-options"
+     title="Delete selected users">
+    Users list
+</div>
+
+<div class="user-info-box" th:each="user : ${people}">
+    <div class="user-info-wrap">
+        <a class="user-info" th:text="${user.getUsername()}">VALUE</a>
+        <form th:action="@{/admin/set-admin/{id}(id=${user.getPersonId()})}" th:method="POST">
+            <div class="set-button">
+                <input type="submit" value="Set as Admin" title="Grant administrator rights">
+            </div>
+        </form>
+
+        <form th:action="@{/admin/unset-admin/{id}(id=${user.getPersonId()})}" th:method="POST">
+            <div class="unset-button">
+                <input type="submit" value="Revoke Admin" title="Revoke administrator rights">
+            </div>
+        </form>
+        <form th:action="@{/admin/delete/{id}(id=${user.getPersonId()})}" th:method="POST">
+            <div class="delete-button">
+                <input type="submit" value="Delete from DB" title="Delete user from DB">
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

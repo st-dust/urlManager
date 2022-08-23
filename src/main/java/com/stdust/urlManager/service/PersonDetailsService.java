@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -29,5 +30,14 @@ public class PersonDetailsService implements UserDetailsService {
         }
 
         return new PersonDetails(person.get());
+    }
+
+    public List<Person> findAll() {
+        return peopleRepository.findAll();
+    }
+
+    public Person findById(int id) {
+        Optional<Person> foundTile = peopleRepository.findById(id);
+        return foundTile.orElse(null);
     }
 }
