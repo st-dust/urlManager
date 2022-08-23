@@ -16,7 +16,6 @@ import java.util.Optional;
 public class TileService {
     private final TileRepository tileRepository;
     private final CollectionRepository collectionRepository;
-    private int collectionId;
 
     @Autowired
     public TileService(TileRepository tileRepository, CollectionRepository collectionRepository) {
@@ -59,13 +58,5 @@ public class TileService {
 
         tile.setCollection(collection.get());
         tileRepository.save(tile);
-    }
-
-    public int getCollectionId() {
-        return collectionId;
-    }
-
-    public void setCollectionId(int collectionId) {
-        this.collectionId = collectionId;
     }
 }

@@ -20,7 +20,6 @@ public class Tile {
     private String description;
 
     @Column(name = "url")
-    @URL
     private String url;
 
     @ManyToOne
