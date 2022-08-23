@@ -27,7 +27,7 @@
                 <input type="submit" value="Revoke Admin" title="Revoke administrator rights">
             </div>
         </form>
-        <form th:action="@{/admin/delete/{id}(id=${user.getPersonId()})}" th:method="POST">
+        <form th:action="@{/admin/delete/{id}(id=${user.getPersonId()})}" th:method="DELETE">
             <div class="delete-button">
                 <input type="submit" value="Delete from DB" title="Delete user from DB">
             </div>
