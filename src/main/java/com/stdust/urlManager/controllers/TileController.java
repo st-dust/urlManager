@@ -38,7 +38,7 @@ public class TileController {
     }
 
     @GetMapping("/new/{collectionId}")
-    public String newTile(@ModelAttribute("newTile") Tile newTile,
+    public String newTile(@ModelAttribute("newTile") @Valid Tile newTile,
                           @PathVariable("collectionId") int collectionId) {
         //Is this normal solution for passing this collectionId into POST method?
         tileService.setCollectionId(collectionId);

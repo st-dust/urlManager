@@ -1,9 +1,14 @@
 package com.stdust.urlManager.controllers;
 
 import com.stdust.urlManager.model.Collection;
+import com.stdust.urlManager.model.Person;
+import com.stdust.urlManager.security.PersonDetails;
 import com.stdust.urlManager.service.CollectionService;
+import com.stdust.urlManager.service.PersonDetailsService;
 import com.stdust.urlManager.service.TileService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,18 +21,27 @@ import javax.validation.Valid;
 public class CollectionController {
     private final TileService tileService;
     private final CollectionService collectionService;
+    private final PersonDetailsService personDetailsService;
 
     @Autowired
-    public CollectionController(TileService tileService, CollectionService collectionService) {
+    public CollectionController(TileService tileService, CollectionService collectionService, PersonDetailsService personDetailsService) {
         this.tileService = tileService;
         this.collectionService = collectionService;
+        this.personDetailsService = personDetailsService;
     }
 
     @GetMapping
     public String index(Model model) {
+        model.addAttribute("person", getPersonInfo());
         model.addAttribute("tiles", tileService.findAll());
         model.addAttribute("collection2tiles", collectionService.collection2tiles());
         return "collections/index";
+    }
+
+    private Person getPersonInfo() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        PersonDetails personDetails = (PersonDetails) authentication.getPrincipal();
+        return personDetails.getPerson();
     }
 
 //    @GetMapping("/{id}")
@@ -37,7 +51,7 @@ public class CollectionController {
 //    }
 
     @GetMapping("/new")
-    public String newCollection(@ModelAttribute("collection") Collection collection) {
+    public String newCollection(@ModelAttribute("collection") @Valid Collection collection) {
         return  "collections/new";
     }
 
@@ -74,6 +88,12 @@ public class CollectionController {
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") int id) {
         collectionService.delete(id);
+        return "redirect:/collections";
+    }
+
+    @DeleteMapping("/delete-current-user/{id}")
+    public String deleteUser(@PathVariable("id") int id) {
+        personDetailsService.delete(id);
         return "redirect:/collections";
     }
 }

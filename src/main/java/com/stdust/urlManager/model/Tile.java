@@ -3,6 +3,7 @@ package com.stdust.urlManager.model;
 import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 
 @Entity
 @Table(name = "tiles")

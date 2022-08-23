@@ -18,6 +18,8 @@ public class Collection {
     @OneToMany(mappedBy = "collection")
     private List<Tile> tiles;
 
+    private int personId;
+
     public Collection() {
     }
 
