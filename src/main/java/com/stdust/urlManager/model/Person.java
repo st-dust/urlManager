@@ -2,6 +2,7 @@ package com.stdust.urlManager.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 @Entity
 @Table(name = "person")
@@ -20,6 +21,9 @@ public class Person {
 
     @Column(name = "role")
     private String role;
+
+    @OneToMany(mappedBy = "tileOwner")
+    private List<Collection> collectionsOfUser;
 
     public Person() {
     }
@@ -58,6 +62,14 @@ public class Person {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public List<Collection> getCollectionsOfUser() {
+        return collectionsOfUser;
+    }
+
+    public void setCollectionsOfUser(List<Collection> collectionsOfUser) {
+        this.collectionsOfUser = collectionsOfUser;
     }
 
     public boolean isAdmin() {

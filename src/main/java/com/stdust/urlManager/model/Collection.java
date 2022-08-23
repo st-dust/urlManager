@@ -18,7 +18,9 @@ public class Collection {
     @OneToMany(mappedBy = "collection")
     private List<Tile> tiles;
 
-    private int personId;
+    @ManyToOne
+    @JoinColumn(name = "person_id", referencedColumnName = "person_id")
+    private Person tileOwner;
 
     public Collection() {
     }
@@ -50,5 +52,13 @@ public class Collection {
 
     public void setTiles(List<Tile> tiles) {
         this.tiles = tiles;
+    }
+
+    public Person getTileOwner() {
+        return tileOwner;
+    }
+
+    public void setTileOwner(Person tileOwner) {
+        this.tileOwner = tileOwner;
     }
 }
