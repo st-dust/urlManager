@@ -3,7 +3,6 @@
     width: 94%;
     border-radius: 30px;
     cursor: pointer;
-    /*margin-left: 1%;*/
     border: 0;
     box-shadow: 0 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
     background-color: darkgray;
@@ -17,7 +16,6 @@
     margin-top: 1%;
     margin-bottom: 1%;
     display: flex;
-    /*justify-content: space-between;*/
 }
 
 .collection-expand-button {
@@ -172,7 +170,7 @@ details > .tile-collection {
     margin: 0;
     width: 3%;
     height: 4%;
-    background-color: tan;
+    background-color: rosybrown;
     border-radius: 25%;
 }
 
@@ -193,7 +191,7 @@ details > .tile-collection {
 }
 
 div.options-wrapper:hover {
-    background-color: darksalmon;
+    background-color: tan;
 }
 
 .options-delete-button {
