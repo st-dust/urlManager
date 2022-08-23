@@ -25,7 +25,7 @@ public class TileService {
     }
 
     public List<Tile> findAll() {
-        return tileRepository.findAll();
+        return tileRepository.findByOrderByIdAsc();
     }
 
     public Tile findById(int id) {

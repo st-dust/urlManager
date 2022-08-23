@@ -22,7 +22,7 @@ public class CollectionService {
     }
 
     public List<Collection> findAll() {
-        return collectionRepository.findAll();
+        return collectionRepository.findByOrderByIdAsc();
     }
 
     public Collection findById(int id) {

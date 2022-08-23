@@ -34,7 +34,7 @@ public class PersonDetailsService implements UserDetailsService {
     }
 
     public List<Person> findAll() {
-        return peopleRepository.findAll();
+        return peopleRepository.findByOrderByPersonIdAsc();
     }
 
     public Person findById(int id) {
