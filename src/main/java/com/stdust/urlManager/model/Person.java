@@ -59,4 +59,8 @@ public class Person {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public boolean isAdmin() {
+        return this.getRole().equals("ROLE_ADMIN");
+    }
 }

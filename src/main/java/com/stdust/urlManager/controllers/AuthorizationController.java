@@ -27,4 +27,16 @@ public class AuthorizationController {
         personDetailsService.delete(id);
         return "redirect:/admin";
     }
+
+    @GetMapping("/set-admin/{id}")
+    public String setAsAdmin(@PathVariable("id") int id) {
+        personDetailsService.setAsAdmin(personDetailsService.findById(id));
+        return "redirect:/admin";
+    }
+
+    @GetMapping("/unset-admin/{id}")
+    public String setAsUser(@PathVariable("id") int id) {
+        personDetailsService.setAsUser(personDetailsService.findById(id));
+        return "redirect:/admin";
+    }
 }

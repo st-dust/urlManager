@@ -42,10 +42,20 @@ public class PersonDetailsService implements UserDetailsService {
         return foundTile.orElse(null);
     }
 
-
-
     @Transactional
     public void delete(int id) {
         peopleRepository.deleteById(id);
+    }
+
+    @Transactional
+    public void setAsAdmin(Person person) {
+        person.setRole("ROLE_ADMIN");
+        peopleRepository.save(person);
+    }
+
+    @Transactional
+    public void setAsUser(Person person) {
+        person.setRole("ROLE_USER");
+        peopleRepository.save(person);
     }
 }
