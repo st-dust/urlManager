@@ -6,6 +6,8 @@
 </head>
 <body>
 
+<h3>REGISTER NEW USER</h3>
+
 <form th:method="POST" th:action="@{/auth/registration}" th:object="${person}">
     <label for="username">Enter username: </label>
     <input type="text" th:field="*{username}" id="username"/>
