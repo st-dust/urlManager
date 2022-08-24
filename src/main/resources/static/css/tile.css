@@ -1,26 +1,29 @@
+.header {
+    background-color: darkkhaki;
+    display: inline-flex;
+    justify-content: space-between;
+    height: 50px;
+    width: 100%;
+    border-radius: 10px;
+    border: 0;
+    align-items: center;
+    margin-bottom: 1%;;
+}
+
 .current-user {
+    height: 100%;
+    width: 30%;
     display: inline-flex;
     justify-content: space-around;
     background-color: burlywood;
-    height: 50px;
-    width: 50%;
     border-radius: 10px;
-    border: 0;
-    margin: 1%;
-}
-
-.page-title {
-    font-family: sans-serif;
-    /* padding: 20px; */
-}
-
-.logout-delete-user-button {
-    font-family: sans-serif;
+    align-items: center;
+    /*padding-inline: 30px;*/
 }
 
 .new-collection {
     height: 50px;
-    width: 94%;
+    width: 100%;
     border-radius: 30px;
     cursor: pointer;
     border: 0;

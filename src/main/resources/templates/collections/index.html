@@ -9,18 +9,20 @@
 </head>
 <body>
 
-<div class="current-user">
-    <p class="page-title" th:text="'Loged in as ' + ${person.getUsername()}">VALUE</p>
-    <form class="logout-delete-user-button" th:action="@{/logout}" th:method="POST">
-        <input type="submit" value="Logout">
-    </form>
-    <form th:action="@{/collections/delete-current-user/{id}(id=${person.getPersonId()})}" th:method="DELETE">
-        <div class="logout-delete-user-button">
-            <input type="submit" value="Delete from DB" title="Delete current profile from DB">
-        </div>
-    </form>
-</div>
+<div class="header">
+    <div class="current-user">
+        <p style="font-weight: bold;" th:text="'Loged in as ' + ${person.getUsername()}">VALUE</p>
+        <form th:action="@{/logout}" th:method="POST">
+            <input type="submit" value="Logout">
+        </form>
+    </div>
 
+    <div>
+    <form style="padding-right: 30px;" th:action="@{/collections/delete-current-user/{id}(id=${person.getPersonId()})}" th:method="DELETE">
+        <input type="submit" value="Delete account" title="Delete current profile from DB">
+    </form>
+    </div>
+</div>
 
 <div th:each="entry : ${collection2tiles}" th:if="${entry.key.isOwnedBy(person.getPersonId())}" class="collection">
     <div class="collection-expand-button">
