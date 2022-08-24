@@ -62,6 +62,7 @@ public class CollectionController {
             return "collection/edit";
         }
 
+        collection.setTileOwner(getPersonInfo());
         collectionService.save(collection);
         return "redirect:collections";
     }
@@ -79,7 +80,7 @@ public class CollectionController {
         if (bindingResult.hasErrors()) {
             return "collections/edit";
         }
-
+        collection.setTileOwner(getPersonInfo());
         collectionService.update(id, collection);
 
         return "redirect:/collections";

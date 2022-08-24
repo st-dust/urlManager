@@ -2,8 +2,6 @@ package com.stdust.urlManager.dto;
 
 import org.hibernate.validator.constraints.URL;
 
-import javax.persistence.Column;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
