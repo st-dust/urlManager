@@ -95,6 +95,7 @@ public class CollectionController {
     @DeleteMapping("/delete-current-user/{id}")
     public String deleteUser(@PathVariable("id") int id) {
         personDetailsService.delete(id);
+        SecurityContextHolder.clearContext();
         return "redirect:/collections";
     }
 }
