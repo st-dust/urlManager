@@ -64,17 +64,17 @@ public class TileController {
         if (bindingResult.hasErrors()) {
             return "tiles/edit";
         }
-//        Collection collection =  (Collection) model.getAttribute("currentCollection");
         newTile.setCollection((Collection) model.getAttribute("currentCollection"));
-//        tileService.save(convert2tile(tileDTO, collectionId));
         tileService.save(newTile);
-//        System.out.println("\n\n\nHERE HERE HERE\n\n\n" + collection.getTitle());
         return "redirect:/collections";
     }
 
     @GetMapping("/{id}/edit")
     public String edit(@PathVariable("id") int id, Model model) {
         model.addAttribute("tile", tileService.findById(id));
+
+        System.out.println("\n\n\nheere\n\n\n" + tileService.findById(id).getCollection().getTitle());
+
         return "tiles/edit";
     }
 
@@ -85,6 +85,8 @@ public class TileController {
         if (bindingResult.hasErrors()) {
             return "tiles/edit";
         }
+
+        tile.setCollection(tileService.findById(id).getCollection());
 
         tileService.update(id, tile);
 
