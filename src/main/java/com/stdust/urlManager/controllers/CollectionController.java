@@ -51,18 +51,18 @@ public class CollectionController {
 //    }
 
     @GetMapping("/new")
-    public String newCollection(@ModelAttribute("collection") @Valid Collection collection) {
+    public String newCollection(@ModelAttribute("collection") Collection collection) {
         return  "collections/new";
     }
 
     @PostMapping
-    public String create(@ModelAttribute("collection") @Valid Collection collection,
+    public String create(@ModelAttribute("collection") Collection collection,
                          BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "collection/edit";
         }
 
-        collection.setTileOwner(getPersonInfo());
+        collection.setCollectionOwner(getPersonInfo());
         collectionService.save(collection);
         return "redirect:collections";
     }
@@ -80,7 +80,7 @@ public class CollectionController {
         if (bindingResult.hasErrors()) {
             return "collections/edit";
         }
-        collection.setTileOwner(getPersonInfo());
+        collection.setCollectionOwner(getPersonInfo());
         collectionService.update(id, collection);
 
         return "redirect:/collections";

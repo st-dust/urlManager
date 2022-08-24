@@ -47,7 +47,7 @@ public class TileController {
     }
 
     @GetMapping("/new/{collectionId}")
-    public String newTile(Model model,@ModelAttribute("newTile") @Valid Tile newTile,
+    public String newTile(Model model,@ModelAttribute("newTile") Tile newTile,
                           @PathVariable("collectionId") int collectionId
                           ) {
         model.addAttribute("currentCollection", collectionService.findById(collectionId));
@@ -55,7 +55,7 @@ public class TileController {
     }
 
     @PostMapping("/new")
-    public String create(@ModelAttribute("newTile") @Valid Tile newTile,
+    public String create(@ModelAttribute("newTile") Tile newTile,
                          Model model,
                          BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {

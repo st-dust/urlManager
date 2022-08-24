@@ -3,22 +3,27 @@ package com.stdust.urlManager.model;
 import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "tiles")
+@Table(name = "tile")
 public class Tile {
     @Id
     @Column(name = "tile_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NotEmpty
+    @Size(min = 2, max = 30, message = "Title should have from 2 to 30 characters")
     @Column(name = "title")
     private String title;
 
+    @Size(max = 100, message = "Description can contain only up to 100 characters")
     @Column(name = "description")
     private String description;
 
+    @URL(message = "Should be in URL format")
     @Column(name = "url")
     private String url;
 

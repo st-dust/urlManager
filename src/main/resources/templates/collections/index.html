@@ -24,14 +24,14 @@
     </div>
 </div>
 
-<div th:each="entry : ${collection2tiles}" th:if="${entry.key.isOwnedBy(person.getPersonId())}" class="collection">
+<div th:each="collection : ${collection2tiles}" th:if="${collection.key.collectionIsOwnedBy(person.getPersonId())}" class="collection">
     <div class="collection-expand-button">
         <div class="collection-details">
             <details>
-                <summary title="Expand collection" th:text="${entry.key.getTitle()}" style="font-size: 170%">VALUE
+                <summary title="Expand collection" th:text="${collection.key.getTitle()}" style="font-size: 170%">VALUE
                 </summary>
                 <div class="tile-container">
-                    <div th:each="tile : ${entry.value}">
+                    <div th:each="tile : ${collection.value}">
                         <div class="tile"
                              th:data-url="${tile.getUrl()}"
                              onclick="window.open(this.getAttribute('data-url'),'_blank')">
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     <div class="tile-create-new"
-                         th:data-url="@{http://localhost:8080/tiles/new/{collectionId}(collectionId=${entry.key.getId()})}"
+                         th:data-url="@{http://localhost:8080/tiles/new/{collectionId}(collectionId=${collection.key.getId()})}"
                          th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"
                          title="Create NEW tile">
                         <a class="icon-centered-position">
@@ -84,7 +84,7 @@
             <div>
                 <form action="#"
                       th:method="DELETE"
-                      th:action="@{http://localhost:8080/collections/{id}(id=${entry.key.getId()})}">
+                      th:action="@{http://localhost:8080/collections/{id}(id=${collection.key.getId()})}">
                     <button class="delete-button"
                             type="submit"
                             title="Delete collection">
@@ -92,7 +92,7 @@
                     </button>
                 </form>
                 <button class="edit-button"
-                        th:data-url="@{http://localhost:8080/collections/{id}/edit(id=${entry.key.getId()})}"
+                        th:data-url="@{http://localhost:8080/collections/{id}/edit(id=${collection.key.getId()})}"
                         th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"
                         title="Edit collection">
                     <img src="/icons/pen.svg">

@@ -22,7 +22,7 @@ public class Person {
     @Column(name = "role")
     private String role;
 
-    @OneToMany(mappedBy = "tileOwner")
+    @OneToMany(mappedBy = "collectionOwner")
     private List<Collection> collectionsOfUser;
 
     public Person() {
