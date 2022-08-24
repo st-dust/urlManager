@@ -6,28 +6,37 @@
 </head>
 <body>
 
-<form name="f" method="POST" action="/process_login">
-    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+<br>
+<br>
 
-    <label for="username">Enter username: </label>
-    <input type="text" name="username" id="username"/>
-    <br/>
-    <label for="password">Enter password: </label>
-    <input type="password" name="password" id="password"/>
-    <br/>
-    <input type="submit" value="Login"/>
 
-    <div th:if="${param.error}" style="color: red">
-        Incorrect username or password
-    </div>
-</form>
+<div style="display: inline-flex;
+    justify-content: space-around;
+    width: 80%;
+    background-color: burlywood;
+    border-radius: 10px;
+    padding: 20px;
+">
+    <form name="f" method="POST" action="/process_login">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 
-<br/>
-<br/>
+        <label for="username">Enter username: </label>
+        <input type="text" name="username" id="username"/>
+        <br/>
+        <label for="password">Enter password: </label>
+        <input type="password" name="password" id="password"/>
+        <br/>
+        <input type="submit" value="Login"/>
 
-<form th:action="@{/auth/registration}" th:method="GET">
-    <input type="submit" value="Create new user">
-</form>
+        <div th:if="${param.error}" style="color: red">
+            Incorrect username or password
+        </div>
+    </form>
 
+    <form th:action="@{/auth/registration}" th:method="GET">
+        <input type="submit" value="Create new user">
+    </form>
+
+</div>
 </body>
 </html>
