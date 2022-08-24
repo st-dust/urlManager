@@ -61,4 +61,8 @@ public class Collection {
     public void setTileOwner(Person tileOwner) {
         this.tileOwner = tileOwner;
     }
+
+    public boolean isOwnedBy(int ownerId) {
+        return this.getTileOwner().getPersonId() == ownerId;
+    }
 }
