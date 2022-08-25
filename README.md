@@ -1,6 +1,6 @@
 # Overview
 
-Simple app implemented in MVC architecture pattern that helps managing web links into groups and allows multi - user support.
+Web app implemented according MVC pattern that helps manage web links into groups and allows multi - user support.
 
 ## Stack of technologies used
 
