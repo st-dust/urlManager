@@ -39,4 +39,9 @@ public class AuthorizationController {
         personDetailsService.setAsUser(personDetailsService.findById(id));
         return "redirect:/admin";
     }
+
+    @GetMapping("/access-denied")
+    public String accessDenied() {
+        return "/error/access-denied";
+    }
 }

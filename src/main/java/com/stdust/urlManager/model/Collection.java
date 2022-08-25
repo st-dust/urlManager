@@ -14,7 +14,7 @@ public class Collection {
     private int id;
 
     @NotEmpty(message = "Collection can't have empty name")
-    @Size(min = 2, max = 50, message = "Title should have from 2 to 50 characters")
+    @Size(min = 2, max = 50, message = "Title of collection should have from 2 to 50 characters")
     @Column(name = "title")
     private String title;
 
