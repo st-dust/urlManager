@@ -4,11 +4,11 @@ Simple app implemented in MVC architecture pattern that helps managing web links
 
 ## Stack of technologies used
 
-- Java 17, Java Spring Framework
+- Java 17
+- Java Spring Framework
     - Boot
-    - Data JPA
+    - Data
     - Security
-    - WEB
 - Maven
 - Hibernate
 - Thymeleaf
