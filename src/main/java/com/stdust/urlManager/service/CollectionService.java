@@ -57,8 +57,8 @@ public class CollectionService {
         }
     }
 
-    public Map<Collection, List<Tile>> collection2tiles() {
-        Map<Collection,List<Tile>> map = new HashMap<>();
+    public LinkedHashMap<Collection, List<Tile>> collection2tiles() {
+        LinkedHashMap<Collection,List<Tile>> map = new LinkedHashMap<>();
         Collection foundCollection;
         List<Tile> tilesOfCollection;
 
