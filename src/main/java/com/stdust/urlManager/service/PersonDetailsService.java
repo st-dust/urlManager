@@ -4,6 +4,8 @@ import com.stdust.urlManager.model.Person;
 import com.stdust.urlManager.repositories.PeopleRepository;
 import com.stdust.urlManager.security.PersonDetails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -57,5 +59,12 @@ public class PersonDetailsService implements UserDetailsService {
     public void setAsUser(Person person) {
         person.setRole("ROLE_USER");
         peopleRepository.save(person);
+    }
+
+    @Transactional
+    public Person getPersonInfo() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        PersonDetails personDetails = (PersonDetails) authentication.getPrincipal();
+        return personDetails.getPerson();
     }
 }

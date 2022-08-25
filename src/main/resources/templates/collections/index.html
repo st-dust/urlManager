@@ -92,7 +92,7 @@
                     </button>
                 </form>
                 <button class="edit-button"
-                        th:data-url="@{http://localhost:8080/collections/{id}/edit(id=${collection.key.getId()})}"
+                        th:data-url="@{http://localhost:8080/collections/edit/{id}(id=${collection.key.getId()})}"
                         th:attr="onclick=|window.open(this.getAttribute('data-url'), '_self')|"
                         title="Edit collection">
                     <img src="/icons/pen.svg">

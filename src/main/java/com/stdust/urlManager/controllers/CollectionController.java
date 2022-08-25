@@ -32,23 +32,11 @@ public class CollectionController {
 
     @GetMapping
     public String index(Model model) {
-        model.addAttribute("person", getPersonInfo());
+        model.addAttribute("person", personDetailsService.getPersonInfo());
         model.addAttribute("tiles", tileService.findAll());
         model.addAttribute("collection2tiles", collectionService.collection2tiles());
         return "collections/index";
     }
-
-    private Person getPersonInfo() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        PersonDetails personDetails = (PersonDetails) authentication.getPrincipal();
-        return personDetails.getPerson();
-    }
-
-//    @GetMapping("/{id}")
-//    public String show(@PathVariable("id") int id, Model model) {
-//        model.addAttribute("tile", collectionService.findById(id));
-//        return "collections/show";
-//    }
 
     @GetMapping("/new")
     public String newCollection(@ModelAttribute("collection") Collection collection) {
@@ -56,31 +44,30 @@ public class CollectionController {
     }
 
     @PostMapping
-    public String create(@ModelAttribute("collection") Collection collection,
+    public String create(@ModelAttribute("collection") @Valid Collection collection,
                          BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "collection/edit";
+            return "collections/new";
         }
 
-        collection.setCollectionOwner(getPersonInfo());
+        collection.setCollectionOwner(personDetailsService.getPersonInfo());
         collectionService.save(collection);
         return "redirect:collections";
     }
 
-    @GetMapping("/{id}/edit")
+    @GetMapping("/edit/{id}")
     public String edit(@PathVariable("id") int id, Model model) {
         model.addAttribute("collection", collectionService.findById(id));
         return "collections/edit";
     }
 
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("tile") @Valid Collection collection,
+    public String update(@ModelAttribute("collection") @Valid Collection collection,
                          BindingResult bindingResult, @PathVariable("id") int id) {
-
         if (bindingResult.hasErrors()) {
             return "collections/edit";
         }
-        collection.setCollectionOwner(getPersonInfo());
+        collection.setCollectionOwner(personDetailsService.getPersonInfo());
         collectionService.update(id, collection);
 
         return "redirect:/collections";

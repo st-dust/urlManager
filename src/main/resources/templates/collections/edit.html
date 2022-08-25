@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<form th:method="PATCH" th:action="@{/collections/{id}(id=${collection.getId})}" th:object="${collection}">
+<form th:method="PATCH" th:action="@{/collections/{id}(id=${collection.getId()})}" th:object="${collection}">
     <h1>EDITING EXISTING COLLECTION</h1>
 
     <label for="title">Enter new tile of collection:</label>
