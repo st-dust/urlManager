@@ -16,19 +16,20 @@ Web app implemented according MVC pattern that helps manage web links into group
 - CSS
 - PostgreSQL
 
-## Functionality in action - YouTube screencast of all application functions
+## Full functionality of app on video
+
 https://youtu.be/zTXd9jDLNGI
 
 ## Screenshots
 
-![thumbnail3](https://user-images.githubusercontent.com/66835270/186597477-3a867345-50bd-4209-8605-94cf4632bac3.png)
 ![thumbnail2](https://user-images.githubusercontent.com/66835270/186597481-761baa52-520e-4288-9d6a-d7c1854e0d6d.png)
 ![thumbnail1](https://user-images.githubusercontent.com/66835270/186597482-8da758b4-465f-4877-84ab-8c4ca7bb37ac.png)
+![thumbnail3](https://user-images.githubusercontent.com/66835270/186597477-3a867345-50bd-4209-8605-94cf4632bac3.png)
 
 ## KNOWN BUGS/ISSUES:
 -  Password has no constraints
 -  When editing or deleting Tile there Tile opens referencing page
--  Lacks styling and responsivnes. JS may be the solution
+-  Lacks styling and responsiveness. JS may be the solution
 
 ## SHORT DOCUMENTATION:
 
@@ -43,7 +44,7 @@ https://youtu.be/zTXd9jDLNGI
     1. Persons name shouldn't be empty
     2. Password has no constraints
     3. Default role of registered user is USER
-    4. Only user with role ADMIN can grant another user ADMIN priviliges
+    4. Only user with role ADMIN can grant another user ADMIN privileges
     5. Can delete itself from database using Delete account button on main page
     6. Can logout
     7. If has role
@@ -66,10 +67,21 @@ https://youtu.be/zTXd9jDLNGI
 
 11. Authorization and Authentication
     1. Unauthorized user can access only login and registration pages
-    2. Only users wiht ADMIN role can access administator page
+    2. Only users with ADMIN role can access administrator page
     3. User with ADMIN role can set any other user to ADMIN
     4. .User with ADMIN role can delete any user
     5. User with role USER can delete only his page
-    6. In case user with role USER attempts to acces admin page, he is being warned about his role and not granted access
+    6. In case user with role USER attempts to access admin page, he is being warned about his role and not granted access
 
+## Hierarchy of entities in database
+
+![sqlDiagram](https://user-images.githubusercontent.com/66835270/186601545-408cd125-6155-41a5-a46f-58806dbe78a9.png)
+
+## How to run
+
+1. Clone src directory of this repository.
+2. Run PostgreSQL database on your machine (with appropriate JDBC driver), or any other relational database.
+3. Save all configuration data about your database (url, login, password) and JDBC driver information in directory **src/main/resources/** in file **database.properties**. All the fields should match **database.properties.origin** file that already exists in repository. 
+4. Create database tables for this project. If you use PostgreSQL than by executing createAllTables.sql you can create all appropriate tables.
+5. After that you should be able to run urlManager.
 
