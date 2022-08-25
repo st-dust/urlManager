@@ -47,19 +47,18 @@ public class TileController {
     }
 
     @GetMapping("/new/{collectionId}")
-    public String newTile(Model model,@ModelAttribute("newTile") Tile newTile,
-                          @PathVariable("collectionId") int collectionId
-                          ) {
+    public String newTile(@ModelAttribute("newTile") Tile newTile, Model model,
+                          @PathVariable("collectionId") int collectionId) {
         model.addAttribute("currentCollection", collectionService.findById(collectionId));
         return  "tiles/new";
     }
 
     @PostMapping("/new")
-    public String create(@ModelAttribute("newTile") Tile newTile,
-                         Model model,
-                         BindingResult bindingResult) {
+    public String create(@ModelAttribute("newTile") @Valid Tile newTile,
+                         BindingResult bindingResult,
+                         Model model) {
         if (bindingResult.hasErrors()) {
-            return "tiles/edit";
+            return "tiles/new";
         }
         newTile.setCollection((Collection) model.getAttribute("currentCollection"));
         tileService.save(newTile);
@@ -95,13 +94,4 @@ public class TileController {
         tileService.delete(id);
         return "redirect:/collections";
     }
-
-//    private Tile convert2tile(TileDTO tileDTO, int collectionId) {
-//        Tile tile = modelMapper.map(tileDTO, Tile.class);
-//
-//        //Enriching Tile
-//        tile.setCollection(collectionService.findById(collectionId));
-//
-//        return tile;
-//    }
 }

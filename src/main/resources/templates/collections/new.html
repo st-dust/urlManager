@@ -9,13 +9,14 @@
 <body>
 
 <form th:method="POST" th:action="@{/collections}" th:object="${collection}">
-    <h1>CREATING NEW COLLECTION</h1>
+    <h1>CREATE NEW COLLECTION</h1>
+
     <label for="title">Enter tile:</label>
     <input type="text" th:field="*{title}" id="title" />
         <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">VALUE</div>
     <br/>
 
-    <input type="submit" value="CREATE"/>
+    <input type="submit" value="CREATE COLLECTION"/>
 </form>
 
 </body>

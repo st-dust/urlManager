@@ -14,7 +14,7 @@ public class Tile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotEmpty
+    @NotEmpty(message = "Tile can't have empty name")
     @Size(min = 2, max = 30, message = "Title should have from 2 to 30 characters")
     @Column(name = "title")
     private String title;
@@ -23,6 +23,7 @@ public class Tile {
     @Column(name = "description")
     private String description;
 
+    @NotEmpty(message = "Tile can't have empty URL")
     @URL(message = "Should be in URL format")
     @Column(name = "url")
     private String url;
