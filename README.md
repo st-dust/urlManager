@@ -16,6 +16,15 @@ Simple app implemented in MVC architecture pattern that helps managing web links
 - CSS
 - PostgreSQL
 
+## Functionality in action - YouTube screencast of all application functions
+https://youtu.be/zTXd9jDLNGI
+
+## Screenshots
+
+![thumbnail3](https://user-images.githubusercontent.com/66835270/186597477-3a867345-50bd-4209-8605-94cf4632bac3.png)
+![thumbnail2](https://user-images.githubusercontent.com/66835270/186597481-761baa52-520e-4288-9d6a-d7c1854e0d6d.png)
+![thumbnail1](https://user-images.githubusercontent.com/66835270/186597482-8da758b4-465f-4877-84ab-8c4ca7bb37ac.png)
+
 ## KNOWN BUGS/ISSUES:
 -  Password has no constraints
 -  When editing or deleting Tile there Tile opens referencing page
