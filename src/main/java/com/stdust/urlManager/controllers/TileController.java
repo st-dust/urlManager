@@ -66,11 +66,8 @@ public class TileController {
     }
 
     @GetMapping("/{id}/edit")
-    public String edit(@PathVariable("id") int id, Model model) {
+    public String edit(Model model, @PathVariable("id") int id) {
         model.addAttribute("tile", tileService.findById(id));
-
-        System.out.println("\n\n\nheere\n\n\n" + tileService.findById(id).getCollection().getTitle());
-
         return "tiles/edit";
     }
 
@@ -83,7 +80,6 @@ public class TileController {
         }
 
         tile.setCollection(tileService.findById(id).getCollection());
-
         tileService.update(id, tile);
 
         return "redirect:/collections";
