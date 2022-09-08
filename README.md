@@ -22,12 +22,20 @@ https://youtu.be/zTXd9jDLNGI
 
 ## Screenshots
 
+- Login and registration
+![register](https://user-images.githubusercontent.com/66835270/189213455-59a2f72d-12ee-4049-b2d5-ebf2db357648.png)
+![registrationConstraints](https://user-images.githubusercontent.com/66835270/189213464-44078b71-0ae6-4844-9eb4-e4a6629ac971.png)
+![login](https://user-images.githubusercontent.com/66835270/189213433-bb3c39f7-cf79-4d6b-8b40-e41891dbdbea.png)
+
+- Tiles & collections
 ![thumbnail2](https://user-images.githubusercontent.com/66835270/186597481-761baa52-520e-4288-9d6a-d7c1854e0d6d.png)
 ![thumbnail1](https://user-images.githubusercontent.com/66835270/186597482-8da758b4-465f-4877-84ab-8c4ca7bb37ac.png)
+
+- Access to admin page
+![accesDenied](https://user-images.githubusercontent.com/66835270/189213899-457352c2-6803-401e-9ed8-158a917f4aad.png)
 ![thumbnail3](https://user-images.githubusercontent.com/66835270/186597477-3a867345-50bd-4209-8605-94cf4632bac3.png)
 
 ## KNOWN BUGS/ISSUES:
--  Password has no constraints
 -  When editing or deleting Tile there Tile opens referencing page
 -  Lacks styling and responsiveness. JS may be the solution
 
