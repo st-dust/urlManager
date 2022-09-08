@@ -1,8 +1,9 @@
 package com.stdust.urlManager.model;
 
+import com.stdust.urlManager.constraints.ValidPassword;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -17,6 +18,7 @@ public class Person {
     @NotEmpty(message = "Name shouldn't be empty")
     private String username;
 
+    @ValidPassword
     @Column(name = "password")
 //    @Size(min = 1, max = 5, message = "Password should contain from 7 to 23 characters")
     private String password;
